@@ -46,6 +46,30 @@
         .logo {
             font-size: 1.8rem;
             font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, #dc2626 0%, #ef4444 100%);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 700;
+            font-size: 1.2rem;
+            box-shadow: 0 4px 12px rgba(220, 38, 38, 0.3);
+        }
+
+        .logo-text .red {
+            color: #dc2626;
+        }
+
+        .logo-text .rest {
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
@@ -541,7 +565,12 @@
 <body>
     <header>
         <nav class="container">
-            <div class="logo">REdefine.io</div>
+            <div class="logo">
+                <div class="logo-icon">⚡</div>
+                <div class="logo-text">
+                    <span class="red">RE</span><span class="rest">DefinePro.io</span>
+                </div>
+            </div>
             <ul class="nav-links">
                 <li><a href="#home">Home</a></li>
                 <li><a href="#services">Services</a></li>
@@ -558,7 +587,7 @@
         
         <div class="container">
             <div class="hero-content">
-                <h1>REdefine Your Business</h1>
+                <h1><span style="color: #dc2626;">RE</span>Define Your Business</h1>
                 <p>Transform your operations with intelligent automation and AI agents. Streamline workflows, eliminate bottlenecks, and unlock your team's potential with cutting-edge artificial intelligence.</p>
                 <a href="#contact" class="cta-button">Get Started Today</a>
             </div>
@@ -570,34 +599,76 @@
             <h2 class="section-title fade-in">Our Services</h2>
             <div class="services-grid">
                 <div class="service-card fade-in">
-                    <div class="service-icon">🤖</div>
-                    <h3>AI Agents & Automation</h3>
-                    <p>Deploy intelligent AI agents that handle complex tasks autonomously. From customer service to data analysis, our AI agents work 24/7 to optimize your operations.</p>
+                    <div class="service-icon">📧</div>
+                    <h3>Email & Communication</h3>
+                    <p>Automate customer emails, appointment confirmations, and follow-ups. Never miss a lead or forget to respond to customers again.</p>
+                </div>
+                <div class="service-card fade-in">
+                    <div class="service-icon">📅</div>
+                    <h3>Scheduling & Appointments</h3>
+                    <p>Streamline your booking process with automated scheduling, reminders, and calendar management. Reduce no-shows and double bookings.</p>
+                </div>
+                <div class="service-card fade-in">
+                    <div class="service-icon">💰</div>
+                    <h3>Invoicing & Payments</h3>
+                    <p>Automatically generate invoices, send payment reminders, and track payments. Get paid faster with less manual work.</p>
                 </div>
                 <div class="service-card fade-in">
                     <div class="service-icon">📊</div>
-                    <h3>Data Integration</h3>
-                    <p>Connect disparate systems and create seamless data flows. Real-time synchronization across all your business platforms.</p>
+                    <h3>Customer Management</h3>
+                    <p>Keep track of customer information, service history, and communications. Build stronger relationships with organized data.</p>
                 </div>
                 <div class="service-card fade-in">
-                    <div class="service-icon">🧠</div>
-                    <h3>Intelligent Process Mining</h3>
-                    <p>AI-powered analysis of your existing processes. Discover hidden inefficiencies and automatically generate optimization recommendations.</p>
+                    <div class="service-icon">📋</div>
+                    <h3>Lead Management</h3>
+                    <p>Capture leads from your website, social media, and referrals. Automatically follow up and nurture prospects into customers.</p>
                 </div>
                 <div class="service-card fade-in">
-                    <div class="service-icon">🔧</div>
-                    <h3>Custom Solutions</h3>
-                    <p>Tailored automation solutions designed specifically for your business needs. From concept to deployment and support.</p>
+                    <div class="service-icon">📱</div>
+                    <h3>Social Media & Marketing</h3>
+                    <p>Schedule posts, respond to reviews, and manage your online presence. Stay connected with customers without the daily hassle.</p>
                 </div>
-                <div class="service-card fade-in">
-                    <div class="service-icon">📈</div>
-                    <h3>AI-Powered Analytics</h3>
-                    <p>Intelligent reporting with predictive analytics and automated insights. Let AI agents monitor your KPIs and alert you to trends and anomalies.</p>
-                </div>
-                <div class="service-card fade-in">
-                    <div class="service-icon">🛡️</div>
-                    <h3>Security & Compliance</h3>
-                    <p>Ensure your automated processes meet industry standards and security requirements. Built-in compliance monitoring.</p>
+            </div>
+
+            <div class="services-expansion">
+                <button class="expand-btn" onclick="toggleMoreServices()">
+                    <span class="expand-text">Show More Services</span>
+                    <span class="expand-icon">▼</span>
+                </button>
+                
+                <div class="more-services" id="moreServices">
+                    <div class="services-grid">
+                        <div class="service-card fade-in">
+                            <div class="service-icon">🔧</div>
+                            <h3>Custom Solutions</h3>
+                            <p>Tailored automation solutions designed specifically for your business needs. From concept to deployment and support.</p>
+                        </div>
+                        <div class="service-card fade-in">
+                            <div class="service-icon">📈</div>
+                            <h3>Business Analytics</h3>
+                            <p>Simple dashboards showing your key business metrics. Understand your performance without complex spreadsheets.</p>
+                        </div>
+                        <div class="service-card fade-in">
+                            <div class="service-icon">🔄</div>
+                            <h3>Data Integration</h3>
+                            <p>Connect your different business tools so they work together. No more manual data entry between systems.</p>
+                        </div>
+                        <div class="service-card fade-in">
+                            <div class="service-icon">🤖</div>
+                            <h3>AI Assistants</h3>
+                            <p>Smart assistants that can answer customer questions, process orders, and handle routine tasks automatically.</p>
+                        </div>
+                        <div class="service-card fade-in">
+                            <div class="service-icon">📝</div>
+                            <h3>Document Processing</h3>
+                            <p>Automatically organize contracts, receipts, and paperwork. Convert documents into actionable data.</p>
+                        </div>
+                        <div class="service-card fade-in">
+                            <div class="service-icon">🛡️</div>
+                            <h3>Security & Backup</h3>
+                            <p>Keep your business data safe with automated backups and security monitoring. Peace of mind for your digital assets.</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -765,7 +836,7 @@
         </div>
     </section>
         <div class="container">
-            <h2>Why Choose REdefine.io?</h2>
+            <h2>Why Choose <span style="color: #dc2626;">RE</span>DefinePro.io?</h2>
             <div class="features-grid">
                 <div class="feature-item fade-in">
                     <div class="feature-number">1</div>
@@ -809,7 +880,7 @@
 
     <footer>
         <div class="container">
-            <p>&copy; 2025 REdefine.io. All rights reserved. | Transforming businesses through AI agents and intelligent automation.</p>
+            <p>&copy; 2025 <span style="color: #dc2626;">RE</span>DefinePro.io. All rights reserved. | Transforming businesses through AI agents and intelligent automation.</p>
         </div>
     </footer>
 
@@ -857,7 +928,25 @@
             }
         });
 
-        // Form submission
+        // Toggle more services
+        function toggleMoreServices() {
+            const moreServices = document.getElementById('moreServices');
+            const expandBtn = document.querySelector('.expand-btn');
+            const expandText = document.querySelector('.expand-text');
+            const expandIcon = document.querySelector('.expand-icon');
+            
+            if (moreServices.classList.contains('expanded')) {
+                moreServices.classList.remove('expanded');
+                expandBtn.classList.remove('expanded');
+                expandText.textContent = 'Show More Services';
+                expandIcon.textContent = '▼';
+            } else {
+                moreServices.classList.add('expanded');
+                expandBtn.classList.add('expanded');
+                expandText.textContent = 'Show Less Services';
+                expandIcon.textContent = '▲';
+            }
+        }
         function handleSubmit(event) {
             event.preventDefault();
             const button = event.target.querySelector('.submit-btn');
